@@ -5,8 +5,8 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from "./components/Footer";
+import PostView from "./components/PostView";
 import Content from "./components/Content";
-
 function App() {
   return (
     <div className='container'>
@@ -17,7 +17,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Posts />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/content/:postid" element={<Content />} />
+          <Route path="/postview/:postId" element={<PostView />} />
+          <Route path="/content/:postId" element={<Content />} />
 
         </Routes>
         <Footer />

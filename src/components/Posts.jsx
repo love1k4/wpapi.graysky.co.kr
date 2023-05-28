@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Posts() {
-    const [posts, setPosts] =useState([]);
+    const [posts, setPosts] = useState([]);
     useEffect(()=> {
         async function loadPosts(){
             const response = await fetch('https://technote.graysky.co.kr/wp-json/wp/v2/posts');
@@ -24,6 +25,7 @@ export default function Posts() {
                 <sub>Posted {post.date}</sub>
                 <strong><h4><div dangerouslySetInnerHTML={{__html: post.title.rendered}} /></h4></strong>
                 <div dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
+                <Link to={`/content/${post.id}`}> Read Article ...</Link>
                 </article>
             </div>
         ))}

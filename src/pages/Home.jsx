@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 export default function Home() {
-const [posts, setPosts] =useState([]);
+const [posts, setPosts] = useState([]);
 useEffect(()=> {
     async function loadPosts(){
         const response = await fetch('https://technote.graysky.co.kr/wp-json/wp/v2/posts');
         if(!response.ok) {
-            return;
+           return;
         }
         const posts = await response.json();
         setPosts(posts);
+        console.log(posts);
     }        
     loadPosts();
 },[])

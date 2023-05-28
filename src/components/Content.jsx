@@ -1,27 +1,28 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
-export default function Content(props) {
-  const [content, setContent] =useState([]);
-  useEffect(()=> {
-      async function loadContent(){
-          const response = await fetch('https://technote.graysky.co.kr/wp-json/wp/v2/posts/1328');
-          if(!response.ok) {
-              return;
-          }
-          const content = await response.json();
-          setContent(content);
-      }        
-      loadContent();
-      
-  },[])
+
+export default function Contents() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const { postId } = useParams();
+
+  useEffect(() => {
+    fetch(`https://technote.graysky.co.kr/wp-json/wp/v2/posts/${postId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  },[0]);
+
+  if (loading) return <div style={{display: 'flex', justifyContent:'center', fontSize:'20px', marginTop: '50px', marginBottom: '100px'}}>Loading...</div>;
   return (
-    <div className='container'>  
-            <article>
-              <div>
-
-              </div>
-                
+    <article>
+              Post No. : {postId} <p />
+              <h1><div dangerouslySetInnerHTML={{__html: data.title.rendered}} /></h1><p />
+              <div dangerouslySetInnerHTML={{__html: data.content.rendered}} /><p />
+              Posted Date : {data.date}
             </article>
-    </div>
-  )}
+  );
+}
