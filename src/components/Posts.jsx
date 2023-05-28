@@ -13,17 +13,18 @@ export default function Posts() {
             setPosts(posts);
         }        
         loadPosts();
+        console.log('posts')
     },[])
   return (
     <div className='container'>
-        <h1>WP Post API Test</h1>
         <div>
          {posts.map((post, index) => (
             <div key={index}>
-                <div>
-                <sub>Posted {post.date}</sub><strong><h4><div dangerouslySetInnerHTML={{__html: post.title.rendered}} /></h4></strong>
-                        { /*<div dangerouslySetInnerHTML={{__html: post.content.rendered}} /> */ }
-                </div>
+                <article>
+                <sub>Posted {post.date}</sub>
+                <strong><h4><div dangerouslySetInnerHTML={{__html: post.title.rendered}} /></h4></strong>
+                <div dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
+                </article>
             </div>
         ))}
         </div>
