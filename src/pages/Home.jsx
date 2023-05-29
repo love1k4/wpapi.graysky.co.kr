@@ -20,9 +20,9 @@ useEffect(()=> {
 return (
 <div className='container'>
     <div style={{textAlign:'right'}}>
-      <sub><b>경성대학교 Linc사업단</b> <i>흐린하늘 Devlog</i></sub>
+      <sub><b>경성대학교 Linc사업단</b> <i>흐린하늘 Develog</i></sub>
         <div style={{display: 'flex', width: '100%', height:'auto', marginTop:'40px', marginBottom: '40px'}} alt='Blog_Home'>
-          <img src="/images/blog_home.jpg" />
+          <img src="/images/blog_home.jpg" alt='Home_img' width={'1280px'} height={'400px'}/>
         </div>
       </div>
     <div>

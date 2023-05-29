@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <nav>
+    <nav style={{height: '140px'}}>
       <ul>
-        <strong><Link className='logo' to='/'>WordPress React</Link></strong>
+        <strong><Link style={{color:'white'}} to='/'>흐린하늘's Develog</Link></strong>
       </ul>
       <ul>
-        <li><Link className='header-nav-item' to='/about'>About</Link></li>
-        <li><Link className='header-nav-item' to='/blog'>Blog</Link></li>
-        <li><Link className='header-nav-item' to='/contact'>Contact</Link></li>
+        <li><Link to='/about'>About</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
       </ul>
     </nav>
   )

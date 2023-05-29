@@ -22,9 +22,9 @@ export default function Posts() {
          {posts.map((post, index) => (
             <div key={index}>
                 <article>
-                <sub>Posted {post.date}</sub>
                 <strong><h4><div dangerouslySetInnerHTML={{__html: post.title.rendered}} /></h4></strong>
                 <div dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
+                <sub style={{display: 'flex', justifyContent:'right'}}>Posted {post.date}</sub><p />
                 <Link to={`/content/${post.id}`}> Read Article ...</Link>
                 </article>
             </div>
